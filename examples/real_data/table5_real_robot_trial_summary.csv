@@ -1,0 +1,6 @@
+﻿task,method,demo_count,seed_count,trial_count,success_count,success_rate_pct,wilson_ci95,p_vs_sparse_only,failure_types
+拾取放置,Ours,22,5,60,53,88.3,"[77.8,94.2]",p=0.022,Contact=3; Perception=2; Reachability=2
+开箱/开柜,Ours,24,5,60,52,86.7,"[75.8,93.1]",p=0.027,Contact=4; Temporal inconsistency=2; Perception=1; Reachability=1
+开微波炉,Ours,8,5,40,33,82.5,"[68.0,91.3]",p=0.045,Contact=4; Reachability=2; Collision/safety stop=1
+多步骤取放,Ours,18,5,50,40,80,"[67.0,88.8]",p=0.029,Temporal inconsistency=4; Contact=3; Perception=2; Collision/safety stop=1
+平均/汇总,Ours,72,5,210,178,84.8,"[79.3,89.0]",p<0.001,Contact=14; Perception=5; Reachability=5; Temporal inconsistency=6; Collision/safety stop=2

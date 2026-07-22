@@ -1,0 +1,8 @@
+﻿alpha,candidate_rollouts,seed_count,accepted_rollouts,rejected_rollouts,total_rejection_rate_mean_pct,total_rejection_rate_sd_pct,acceptance_rate_mean_pct,acceptance_rate_sd_pct,collision_rejection_rate_mean_pct,collision_rejection_rate_sd_pct,coverage_index_mean,coverage_index_sd,success_trials,total_trials,incremental_success_rate_pct,success_ci95,p_vs_alpha0
+0,1200,5,1142,58,4.8,1.4,95.2,1.4,2.1,0.6,0.36,0.05,191,240,79.6,"[74.0,84.2]",—
+0.25,1200,5,1112,88,7.3,1.9,92.7,1.9,3.4,1,0.48,0.05,198,240,82.5,"[77.2,86.8]",p=0.415
+0.5,1200,5,1069,131,10.9,2.4,89.1,2.4,5.2,1.4,0.61,0.05,204,240,85,"[79.9,89.0]",p=0.120
+0.75,1200,5,1022,178,14.8,2.9,85.2,2.9,7.5,1.9,0.73,0.05,209,240,87.1,"[82.2,90.7]",p=0.027
+1,1200,5,979,221,18.4,3.4,81.6,3.4,10.2,2.3,0.81,0.04,212,240,88.3,"[83.7,91.8]",p=0.009
+1.25,1200,5,898,302,25.2,3.9,74.8,3.9,15.4,2.7,0.86,0.04,208,240,86.7,"[81.8,90.4]",p=0.038
+1.5,1200,5,793,407,33.9,4.4,66.1,4.4,23.2,3.1,0.91,0.04,201,240,83.8,"[78.6,87.9]",p=0.238

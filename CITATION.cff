@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the accompanying manuscript."
+title: "Object-Decoupled 3DGS for Structure-Constrained Data Expansion"
+type: software
+version: 0.2.0
+date-released: 2026-07-23
+license: Apache-2.0
+authors:
+  - family-names: Authors
+    given-names: Anonymous
+keywords:
+  - 3D Gaussian Splatting
+  - robot learning
+  - sparse demonstrations
+  - structure-constrained data expansion
+preferred-citation:
+  type: article
+  title: "Object-Decoupled 3D Gaussian Splatting for Structure-Constrained Data Expansion in Sparse-Demonstration Robot Learning"
+  authors:
+    - family-names: Authors
+      given-names: Anonymous
+  year: 2026

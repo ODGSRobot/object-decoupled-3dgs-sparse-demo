@@ -1,0 +1,7 @@
+﻿ablation_config,success_rate_macro_pct,success_delta,smoothness_delta,task_count,seed_count,task_seed_units,ci95,p_value,test,task_scope,drawer_excluded,aggregation
+Sparse-only baseline,73.6,Reference,Reference,4,5,20,--,--,Reference,pick-place; medicine-box opening; microwave opening; multistep retrieval,yes,unweighted macro mean over task-by-seed cells
+Full framework,84.4,+10.8 pp vs Sparse-only,-22.40%,4,5,20,"[6.1,15.0] pp",p=0.002,paired task-seed bootstrap,pick-place; medicine-box opening; microwave opening; multistep retrieval,yes,unweighted macro mean over task-by-seed cells
+w/o loss-only regularization,80.5,-3.9 pp vs Full,18.60%,4,5,20,"[-7.3,-0.6] pp",p=0.024,paired task-seed bootstrap,pick-place; medicine-box opening; microwave opening; multistep retrieval,yes,unweighted macro mean over task-by-seed cells
+w/o object-decoupled 3DGS,77.8,-6.6 pp vs Full,9.40%,4,5,20,"[-10.5,-2.4] pp",p=0.006,paired task-seed bootstrap,pick-place; medicine-box opening; microwave opening; multistep retrieval,yes,unweighted macro mean over task-by-seed cells
+w/o feasible filtering,74.7,-9.7 pp vs Full,14.80%,4,5,20,"[-14.3,-5.1] pp",p<0.001,paired task-seed bootstrap,pick-place; medicine-box opening; microwave opening; multistep retrieval,yes,unweighted macro mean over task-by-seed cells
+random augmentation,72.9,-11.5 pp vs Full,21.70%,4,5,20,"[-16.2,-6.7] pp",p<0.001,paired task-seed bootstrap,pick-place; medicine-box opening; microwave opening; multistep retrieval,yes,unweighted macro mean over task-by-seed cells

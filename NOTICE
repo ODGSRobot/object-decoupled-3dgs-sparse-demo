@@ -1,0 +1,20 @@
+Object-Decoupled 3DGS for Sparse-Demonstration Robot Learning
+Copyright 2026 Anonymous Authors
+
+This repository is distributed under the Apache License, Version 2.0.
+
+The integration documentation references, but does not vendor, the following
+third-party projects. Their own licenses and terms apply:
+
+* NVIDIA Isaac GR00T N1.7, Apache-2.0
+  https://github.com/NVIDIA/Isaac-GR00T
+* NVIDIA 3DGRUT, see the upstream repository for license terms
+  https://github.com/NVlabs/3dgrut
+* NVIDIA Isaac Lab, BSD-3-Clause
+  https://github.com/isaac-sim/IsaacLab
+* LightwheelAI LeIsaac, see the upstream repository for license terms
+  https://github.com/LightwheelAI/LeIsaac
+
+The project-page design is original to this repository and acknowledges the
+layout conventions popularized by Nerfies and Academic Project Page Template.
+See docs/SITE_ATTRIBUTION.md.

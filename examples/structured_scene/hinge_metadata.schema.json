@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Object-Decoupled 3DGS Hinge Metadata",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "structure_type",
+    "hinge_axis",
+    "hinge_center_m",
+    "lower_limit_deg",
+    "upper_limit_deg",
+    "fixed_part",
+    "moving_part"
+  ],
+  "properties": {
+    "asset_id": {"type": "string", "minLength": 1},
+    "structure_type": {"const": "hinge"},
+    "hinge_axis": {"$ref": "#/$defs/vector3"},
+    "hinge_center_m": {"$ref": "#/$defs/vector3"},
+    "lower_limit_deg": {"type": "number"},
+    "upper_limit_deg": {"type": "number"},
+    "fixed_part": {"type": "string"},
+    "moving_part": {"type": "string"},
+    "source_gaussian_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "annotation_view_ids": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "vector3": {
+      "type": "array",
+      "items": {"type": "number"},
+      "minItems": 3,
+      "maxItems": 3
+    }
+  }
+}

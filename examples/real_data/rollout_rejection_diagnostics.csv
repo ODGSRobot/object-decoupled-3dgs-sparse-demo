@@ -1,0 +1,64 @@
+﻿task,method,round,seed_count,candidate_rollouts,accepted_rollouts,rejected_rollouts,acceptance_rate_pct,total_rejection_rate_pct,collision_trigger_rate_pct,workspace_trigger_rate_pct,articulation_trigger_rate_pct,visibility_trigger_rate_pct,smoothness_trigger_rate_pct
+Microwave door,Ours,0,5,600,476,124,79.33,20.67,5.65,1.34,1.87,1.81,1.50
+Microwave door,Ours,1,5,640,536,104,83.75,16.25,5.02,2.14,1.71,1.84,2.16
+Microwave door,Ours,2,5,680,586,94,86.18,13.82,7.73,2.12,0.26,2.36,1.55
+Microwave door,Ours,3,5,720,645,75,89.58,10.42,7.70,2.66,1.31,2.58,1.32
+Microwave door,Ours,4,5,760,710,50,93.42,6.58,9.17,2.34,0.96,2.40,1.91
+Microwave door,Ours,5,5,800,763,37,95.38,4.62,9.47,2.45,0.80,2.45,1.77
+Microwave door,Ours,6,5,840,806,34,95.95,4.05,11.51,2.55,2.13,2.33,1.38
+Microwave door,Random-Aug,0,5,600,217,383,36.17,63.83,26.83,9.65,11.45,7.69,7.65
+Microwave door,Random-Aug,1,5,640,260,380,40.62,59.38,27.25,9.76,11.52,7.41,8.31
+Microwave door,Random-Aug,2,5,680,290,390,42.65,57.35,28.85,9.02,10.52,7.17,8.35
+Microwave door,Random-Aug,3,5,720,320,400,44.44,55.56,28.62,9.12,11.05,7.29,7.92
+Microwave door,Random-Aug,4,5,760,326,434,42.89,57.11,28.74,9.44,12.01,7.62,7.83
+Microwave door,Random-Aug,5,5,800,372,428,46.50,53.50,30.80,9.60,11.16,7.47,7.82
+Microwave door,Random-Aug,6,5,840,408,432,48.57,51.43,31.42,9.20,12.18,7.56,8.14
+Microwave door,Scene-Aug w/o structure,0,5,600,374,226,62.33,37.67,15.42,4.60,6.10,4.07,4.57
+Microwave door,Scene-Aug w/o structure,1,5,640,425,215,66.41,33.59,16.36,5.64,6.99,4.33,5.13
+Microwave door,Scene-Aug w/o structure,2,5,680,483,197,71.03,28.97,18.38,5.39,5.94,4.60,5.56
+Microwave door,Scene-Aug w/o structure,3,5,720,510,210,70.83,29.17,18.72,5.62,7.15,4.37,4.67
+Microwave door,Scene-Aug w/o structure,4,5,760,541,219,71.18,28.82,19.64,5.39,6.56,4.01,5.63
+Microwave door,Scene-Aug w/o structure,5,5,800,578,222,72.25,27.75,21.02,5.46,7.23,4.33,4.96
+Microwave door,Scene-Aug w/o structure,6,5,840,611,229,72.74,27.26,21.66,5.66,6.67,4.86,5.26
+Multi-step retrieval,Ours,0,5,600,467,133,77.83,22.17,4.10,2.50,1.23,1.98,2.37
+Multi-step retrieval,Ours,1,5,640,543,97,84.84,15.16,5.69,2.52,0.93,2.27,1.35
+Multi-step retrieval,Ours,2,5,680,604,76,88.82,11.18,7.12,2.47,1.59,1.36,1.15
+Multi-step retrieval,Ours,3,5,720,669,51,92.92,7.08,8.62,2.59,0.68,1.80,1.95
+Multi-step retrieval,Ours,4,5,760,709,51,93.29,6.71,8.92,2.47,1.39,2.52,1.84
+Multi-step retrieval,Ours,5,5,800,749,51,93.62,6.38,10.65,2.45,1.17,1.67,1.74
+Multi-step retrieval,Ours,6,5,840,782,58,93.10,6.90,10.68,2.25,1.60,2.54,1.64
+Multi-step retrieval,Random-Aug,0,5,600,232,368,38.67,61.33,24.77,9.23,11.26,7.68,8.28
+Multi-step retrieval,Random-Aug,1,5,640,256,384,40.00,60.00,26.89,9.37,12.00,7.91,7.65
+Multi-step retrieval,Random-Aug,2,5,680,288,392,42.35,57.65,28.61,9.55,11.60,7.61,8.54
+Multi-step retrieval,Random-Aug,3,5,720,309,411,42.92,57.08,30.11,9.20,11.74,8.05,8.61
+Multi-step retrieval,Random-Aug,4,5,760,365,395,48.03,51.97,29.37,9.47,10.70,7.57,8.70
+Multi-step retrieval,Random-Aug,5,5,800,371,429,46.38,53.62,30.71,9.18,10.93,7.36,7.75
+Multi-step retrieval,Random-Aug,6,5,840,388,452,46.19,53.81,31.03,9.34,11.10,7.92,8.23
+Multi-step retrieval,Scene-Aug w/o structure,0,5,600,387,213,64.50,35.50,16.54,4.89,6.53,4.07,5.07
+Multi-step retrieval,Scene-Aug w/o structure,1,5,640,443,197,69.22,30.78,18.07,5.20,7.81,4.35,4.42
+Multi-step retrieval,Scene-Aug w/o structure,2,5,680,470,210,69.12,30.88,18.06,5.28,7.07,4.41,4.77
+Multi-step retrieval,Scene-Aug w/o structure,3,5,720,516,204,71.67,28.33,17.96,5.48,7.57,4.58,4.76
+Multi-step retrieval,Scene-Aug w/o structure,4,5,760,560,200,73.68,26.32,21.04,5.83,7.53,5.56,4.79
+Multi-step retrieval,Scene-Aug w/o structure,5,5,800,587,213,73.38,26.62,21.19,5.08,6.73,3.76,4.80
+Multi-step retrieval,Scene-Aug w/o structure,6,5,840,607,233,72.26,27.74,21.57,5.33,7.39,3.77,4.42
+Pick-place,Ours,0,5,600,468,132,78.00,22.00,5.12,2.58,1.26,2.19,1.66
+Pick-place,Ours,1,5,640,534,106,83.44,16.56,5.95,2.24,1.26,1.79,2.08
+Pick-place,Ours,2,5,680,606,74,89.12,10.88,6.89,2.31,1.31,1.86,1.39
+Pick-place,Ours,3,5,720,671,49,93.19,6.81,8.94,2.38,1.33,2.28,2.03
+Pick-place,Ours,4,5,760,706,54,92.89,7.11,7.39,2.43,0.94,2.33,2.19
+Pick-place,Ours,5,5,800,751,49,93.88,6.12,9.59,2.86,1.10,2.03,1.99
+Pick-place,Ours,6,5,840,802,38,95.48,4.52,10.91,2.33,1.05,2.43,1.29
+Pick-place,Random-Aug,0,5,600,215,385,35.83,64.17,26.51,10.23,12.06,7.88,7.78
+Pick-place,Random-Aug,1,5,640,259,381,40.47,59.53,26.93,9.06,11.68,7.43,8.50
+Pick-place,Random-Aug,2,5,680,285,395,41.91,58.09,28.80,9.47,11.20,7.35,8.46
+Pick-place,Random-Aug,3,5,720,316,404,43.89,56.11,28.56,9.50,11.28,7.53,7.90
+Pick-place,Random-Aug,4,5,760,335,425,44.08,55.92,30.15,9.20,10.75,7.83,8.49
+Pick-place,Random-Aug,5,5,800,357,443,44.62,55.38,32.19,9.31,11.23,7.83,8.69
+Pick-place,Random-Aug,6,5,840,406,434,48.33,51.67,32.63,9.53,11.06,7.92,8.44
+Pick-place,Scene-Aug w/o structure,0,5,600,405,195,67.50,32.50,15.89,5.14,7.15,4.80,4.37
+Pick-place,Scene-Aug w/o structure,1,5,640,439,201,68.59,31.41,16.52,5.32,7.60,4.49,5.43
+Pick-place,Scene-Aug w/o structure,2,5,680,473,207,69.56,30.44,17.45,5.45,7.49,4.18,4.67
+Pick-place,Scene-Aug w/o structure,3,5,720,502,218,69.72,30.28,18.19,5.15,7.96,4.87,5.40
+Pick-place,Scene-Aug w/o structure,4,5,760,549,211,72.24,27.76,19.34,4.91,6.68,4.84,5.13
+Pick-place,Scene-Aug w/o structure,5,5,800,594,206,74.25,25.75,21.00,5.78,6.60,4.70,5.28
+Pick-place,Scene-Aug w/o structure,6,5,840,623,217,74.17,25.83,21.64,5.45,7.48,4.73,4.65

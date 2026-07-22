@@ -1,0 +1,32 @@
+schema_version: 1
+stages:
+  - id: sparse_policy
+    input: LeRobot v2 demonstrations with external and wrist RGB observations
+    output: initial policy checkpoint and immutable run manifest
+  - id: structured_scene
+    input: calibrated multiview images, instance masks, and trained Gaussian PLY assets
+    output: object and background assets, local frames, hinge metadata, and collision proxies
+  - id: rollout_expansion
+    input: initial policy, structured scene assets, and randomization domain
+    output: accepted trajectories, rejected-candidate provenance, and updated policy checkpoints
+
+public_entry_points:
+  regularization: src/odgs_sparse_demo/regularization.py
+  hinge_geometry: src/odgs_sparse_demo/scene.py
+  gaussian_ply: src/odgs_sparse_demo/gaussian_ply.py
+  screening: src/odgs_sparse_demo/feasibility.py
+  closed_loop: src/odgs_sparse_demo/pipeline.py
+  evaluation: src/odgs_sparse_demo/metrics.py
+  figures: scripts/plot_iteration_results.py
+
+release_boundary:
+  included:
+    - paper-facing source code and tests
+    - resolved experiment configuration
+    - paper-facing CSV records
+    - vector manuscript figures and compressed demonstration GIFs
+  excluded:
+    - identifiable raw laboratory video
+    - licensed upstream source trees
+    - pretrained and fine-tuned checkpoints
+    - manuscripts, EndNote libraries, PPT working files, and revision artifacts

@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Experiment outputs and private assets
+outputs/
+runs/
+wandb/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+*.bag
+*.mp4
+*.mov
+*.avi
+*.ply
+*.usdz
+
+# Editor and OS files
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+*.tmp
+*.bak
+
+# Never publish manuscript-production artifacts from this repository
+*.docx
+*.enl
+*.Data/
+*.pptx
+revision_work/
+
+# Local legacy material retained on disk but excluded from this clean release
+/assets/
+/docs/assets/img/
+/examples/real_data/fig10_*.csv
