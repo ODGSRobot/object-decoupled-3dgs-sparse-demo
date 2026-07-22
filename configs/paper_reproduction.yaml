@@ -1,0 +1,93 @@
+schema_version: 2
+manuscript_alignment: Neurocomputing v35 (2026-07-22)
+
+evaluation:
+  control_frequency_hz: 30
+  seeds: [0, 1, 2, 3, 4]
+  deployment_batch:
+    tasks: [pick-place, medicine-box operation, microwave opening, multistep retrieval]
+    trials: 210
+    aggregation: trial-weighted
+  method_comparison_batch:
+    tasks: [pick-place, microwave opening, multistep retrieval]
+    trials_per_method: 300
+    aggregation: trial-weighted
+  ablation_batch:
+    tasks: [pick-place, medicine-box operation, microwave opening, multistep retrieval]
+    task_seed_cells: 20
+    aggregation: unweighted macro mean over paired task-by-seed cells
+  excluded_tasks: [drawer opening]
+
+policy_training:
+  base_model: nvidia/GR00T-N1.7-3B
+  algorithm_variant: sparse_demo_temporal
+  temporal_consistency_weight: 0.05
+  velocity_smoothness_weight: 0.02
+  global_batch_size: 64
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  warmup_ratio: 0.05
+  max_steps: 10000
+  checkpoint_interval_steps: 1000
+  state_dropout_probability: 0.2
+  frozen_modules: [language_backbone, visual_backbone]
+  trainable_modules: [projector, action_decoder]
+  architecture_changed: false
+  inference_path_changed: false
+
+structured_environment:
+  supported_structure_types: [rigid, hinge]
+  randomization:
+    robot_start_xy_offset_m: [-0.03, 0.03]
+    object_xy_offset_m: [-0.03, 0.03]
+    object_yaw_offset_deg: [-10.0, 10.0]
+    target_xy_offset_m: [-0.03, 0.03]
+    hinge_angle: object-specific annotated limits with a 2 degree boundary margin
+  coverage_index:
+    normalized_bin_edges: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    aggregation: mean visited-bin fraction across randomized dimensions
+
+rollout_screening:
+  automatic_checks:
+    collision_penetration_m_max: 0.0
+    workspace_outside_distance_m_max: 0.0
+    joint_limit_excess_rad_max: 0.0
+    visible_target_fraction_min: 0.50
+    hinge_boundary_margin_deg_min: 2.0
+    structural_translation_residual_m_max: 0.010
+    structural_rotation_residual_deg_max: 5.0
+    normalized_action_second_difference_max: 0.20
+  manual_review:
+    - task-stage completeness
+    - obvious interpenetration or contact anomaly
+    - rendering or annotation failure
+  accepted_only_if: all automatic checks pass and manual review passes
+  not_validated:
+    - contact force
+    - friction
+    - dynamic stability
+
+software:
+  policy_python: "3.10"
+  policy_pytorch: "2.7.1"
+  policy_cuda: "12.8"
+  transformers: "4.57.3"
+  gr00t: n1.7-release
+  isaaclab_extension: "0.47.2"
+  leisaac_commit: 099a4081b987628ae1009aded2da888314489a12
+  threedgrut_commit: ffa1025ad7c13814527742273afb05ecc53925f3
+  threedgrut_package: "0.0.2"
+  asset_python: ">=3.11"
+
+run_manifest:
+  recorder: scripts/record_run_manifest.py
+  required_fields:
+    - resolved_training_command
+    - start_time_utc
+    - end_time_utc
+    - wall_clock_seconds
+    - gpu_name
+    - gpu_memory_mib
+    - driver_version
+    - final_checkpoint_sha256
+    - source_tree_sha256

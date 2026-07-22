@@ -1,0 +1,6 @@
+numpy>=1.26
+pandas>=2.2
+PyYAML>=6.0
+
+# Install optional features through pyproject.toml, for example:
+#   python -m pip install -e ".[dev,figures]"

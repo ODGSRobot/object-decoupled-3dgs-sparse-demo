@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Object-decoupled 3D Gaussian Splatting for structure-constrained data expansion from sparse robot demonstrations.">
+  <meta name="keywords" content="3D Gaussian Splatting, robot learning, sparse demonstrations, virtual rollout, data augmentation">
+  <meta name="author" content="Anonymous Authors">
+  <meta name="theme-color" content="#0b1513">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Object-Decoupled 3DGS for Structure-Constrained Data Expansion">
+  <meta property="og:description" content="A closed loop from sparse real demonstrations to structured 3DGS scenes, screened virtual rollouts, and incremental robot learning.">
+  <title>Object-Decoupled 3DGS | Sparse-Demonstration Robot Learning</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/main.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Object-Decoupled 3D Gaussian Splatting for Structure-Constrained Data Expansion in Sparse-Demonstration Robot Learning",
+    "author": [{"@type": "Person", "name": "Anonymous Authors"}],
+    "dateCreated": "2026",
+    "keywords": ["3D Gaussian Splatting", "robot learning", "sparse demonstrations", "data expansion"]
+  }
+  </script>
+</head>
+<body data-repository="object-decoupled-3dgs-sparse-demo">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="OD3GS home">OD3GS</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#method">Method</a>
+      <a href="#media">Media</a>
+      <a href="#results">Results</a>
+      <a href="#reproducibility">Reproduce</a>
+      <a href="#citation">Citation</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <img class="hero-media" src="assets/media/odgs/medicine-box-third-person.gif" alt="Virtual robot opening a hinged medicine box in the reconstructed scene">
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="venue">Neurocomputing manuscript · 2026</p>
+      <h1>Object-Decoupled 3D Gaussian Splatting</h1>
+      <p class="hero-subtitle">Structure-Constrained Data Expansion in Sparse-Demonstration Robot Learning</p>
+      <p class="authors"><span>Anonymous Authors</span></p>
+      <p class="affiliation">Under double-blind review</p>
+      <div class="hero-actions" aria-label="Project resources">
+        <a class="button button-primary" href="#overview">Read overview</a>
+        <a class="button button-secondary repo-link" href="../" data-repo-path="">Code</a>
+        <a class="button button-secondary repo-link" href="../examples/real_data/" data-repo-path="tree/main/examples/real_data">Data records</a>
+        <a class="button button-secondary" href="#citation">BibTeX</a>
+      </div>
+    </div>
+    <div class="hero-evidence" aria-label="Headline results">
+      <div><strong>259 / 300</strong><span>three-task successes</span></div>
+      <div><strong>+11.0 pp</strong><span>over sparse-only training</span></div>
+      <div><strong>94.8%</strong><span>final rollout acceptance</span></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section section-intro" id="overview">
+      <div class="section-heading">
+        <p class="eyebrow">Overview</p>
+        <h2>Expand the executable support, not just the sample count</h2>
+      </div>
+      <div class="abstract-grid">
+        <p class="lead">
+          Sparse demonstrations leave large portions of a manipulation task unseen. Appearance-only augmentation can add images without adding executable state transitions. We instead use object structure to define where virtual interaction may vary and screen every generated trajectory before it can affect policy training.
+        </p>
+        <p>
+          The loop begins with an initial policy trained on synchronized real top-view and wrist-view episodes. Foreground objects and background are reconstructed as separately controllable 3DGS assets, with rigid pose ranges or hinge parameters. The policy then performs closed-loop virtual rollouts under scene randomization. Only candidates that pass the implemented kinematic and geometric checks and manual review are written back for incremental training.
+        </p>
+      </div>
+      <figure class="wide-figure">
+        <img class="zoomable" src="assets/figures/fig01_framework_loop.svg" alt="Three-stage framework from sparse demonstrations through structured 3DGS assets to incremental policy learning">
+        <figcaption>The complete evidence chain connects sparse real demonstrations, structured 3DGS scenes, screened virtual rollouts, and real-robot evaluation.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section method-section" id="method">
+      <div class="section-heading">
+        <p class="eyebrow">Method</p>
+        <h2>Three coupled components</h2>
+      </div>
+
+      <article class="method-band">
+        <div class="method-copy">
+          <span class="method-number">01</span>
+          <h3>Training-only sequence regularization</h3>
+          <p>The released policy architecture and inference path are retained. During training, first-order vector-field variation and second-order clean-action curvature are added to the original masked flow-matching objective. Both terms operate only on valid action dimensions.</p>
+          <a class="text-link repo-link" href="../integrations/gr00t_n1_7/" data-repo-path="tree/main/integrations/gr00t_n1_7">Open the integration hook</a>
+        </div>
+        <figure>
+          <img class="zoomable" src="assets/figures/fig02_training_regularization.svg" alt="Comparison of policy training with and without sequence regularization">
+          <figcaption>The model path is shared; only the training objective differs.</figcaption>
+        </figure>
+      </article>
+
+      <article class="method-band method-band-alt">
+        <div class="method-copy">
+          <span class="method-number">02</span>
+          <h3>Object-decoupled structural 3DGS</h3>
+          <p>Objects and completed background are modeled separately in a common scene frame. Local object frames, rigid-pose ranges, hinge axes, centers, and angle limits expose task-relevant degrees of freedom while preserving view synthesis and object ownership.</p>
+          <a class="text-link repo-link" href="../src/odgs_sparse_demo/scene.py" data-repo-path="blob/main/src/odgs_sparse_demo/scene.py">Inspect structural-state code</a>
+        </div>
+        <figure>
+          <img class="zoomable" src="assets/figures/fig03_object_decoupled_3dgs.svg" alt="Object-decoupled 3DGS representation with background, local frames, and hinge parameters">
+          <figcaption>Rigid and hinged assets define the sampled low-dimensional scene manifold.</figcaption>
+        </figure>
+      </article>
+
+      <article class="method-band">
+        <div class="method-copy">
+          <span class="method-number">03</span>
+          <h3>Screened rollout and incremental update</h3>
+          <p>Each candidate stores its seed, source episode, policy checkpoint, sampled scene state, check values, and review outcome. A trajectory enters the expanded set only when all automatic checks and the manual review pass. Rejected candidates remain in the provenance log.</p>
+          <a class="text-link repo-link" href="../src/odgs_sparse_demo/pipeline.py" data-repo-path="blob/main/src/odgs_sparse_demo/pipeline.py">Inspect Algorithm 1 implementation</a>
+        </div>
+        <div class="criterion-list" aria-label="Implemented screening criteria">
+          <span>Collision proxy</span>
+          <span>Workspace</span>
+          <span>Joint limits</span>
+          <span>Target visibility</span>
+          <span>Hinge range</span>
+          <span>Structural residual</span>
+          <span>Action curvature</span>
+          <span>Manual review</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section evidence-section">
+      <div class="section-heading">
+        <p class="eyebrow">Structural evidence</p>
+        <h2>Decoupling and recomposition in a shared scene</h2>
+      </div>
+      <figure class="wide-figure">
+        <img class="zoomable" src="assets/figures/fig04_object_decoupling_examples.svg" alt="Object and background decoupling examples across hinged and rigid manipulation objects">
+        <figcaption>Observed image, instance ownership, object asset, completed background, and recomposed state are aligned by column.</figcaption>
+      </figure>
+      <figure class="wide-figure">
+        <img class="zoomable" src="assets/figures/fig05_structured_asset_construction.svg" alt="Hinge-axis alignment and staged medicine-box and microwave asset construction">
+        <figcaption>Medicine-box and microwave assets are split into moving and fixed parts around calibrated hinge references.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section media-section" id="media">
+      <div class="section-heading">
+        <p class="eyebrow">Virtual rollouts</p>
+        <h2>Hinged tasks from wrist and third-person views</h2>
+        <p class="section-note">The paired views show the same two task families used for hinge validation. GIFs are compressed for the web page.</p>
+      </div>
+      <div class="media-grid">
+        <figure class="media-item">
+          <img src="assets/media/odgs/medicine-box-wrist.gif" loading="lazy" alt="Wrist-view virtual rollout for medicine-box opening">
+          <figcaption><strong>Medicine box</strong><span>Wrist view</span></figcaption>
+        </figure>
+        <figure class="media-item">
+          <img src="assets/media/odgs/medicine-box-third-person.gif" loading="lazy" alt="Third-person virtual rollout for medicine-box opening">
+          <figcaption><strong>Medicine box</strong><span>Third-person view</span></figcaption>
+        </figure>
+        <figure class="media-item">
+          <img src="assets/media/odgs/microwave-wrist.gif" loading="lazy" alt="Wrist-view virtual rollout for microwave opening">
+          <figcaption><strong>Microwave</strong><span>Wrist view</span></figcaption>
+        </figure>
+        <figure class="media-item">
+          <img src="assets/media/odgs/microwave-third-person.gif" loading="lazy" alt="Third-person virtual rollout for microwave opening">
+          <figcaption><strong>Microwave</strong><span>Third-person view</span></figcaption>
+        </figure>
+      </div>
+      <figure class="wide-figure multiview-figure">
+        <img class="zoomable" src="assets/figures/fig09_real_virtual_multiview_alignment.svg" alt="Aligned real top and wrist views with virtual top wrist and third-person views">
+        <figcaption>Real and virtual observations preserve the articulation state and manipulation region across viewpoints.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section results-section" id="results">
+      <div class="section-heading">
+        <p class="eyebrow">Results</p>
+        <h2>A closed-loop result, measured at each stage</h2>
+      </div>
+      <div class="result-strip" aria-label="Key quantitative results">
+        <div><strong>86.3%</strong><span>complete framework<br>259/300</span></div>
+        <div><strong>75.3%</strong><span>sparse-only training<br>226/300</span></div>
+        <div><strong>27.68</strong><span>scene-mean PSNR<br>9 scenes</span></div>
+        <div><strong>0.110</strong><span>scene-mean LPIPS<br>69 held-out views</span></div>
+      </div>
+
+      <div class="result-figure-stack">
+        <figure>
+          <img class="zoomable" src="assets/figures/fig06_multitask_success_iterations.svg" alt="Task success over iteration rounds for three manipulation tasks">
+          <figcaption><strong>Task success.</strong> The complete framework improves across all three tasks and reaches 259 successes in 300 final-round trials.</figcaption>
+        </figure>
+        <figure>
+          <img class="zoomable" src="assets/figures/fig07_multitask_rollout_acceptance.svg" alt="Accepted virtual rollout ratio over iteration rounds for three tasks">
+          <figcaption><strong>Rollout acceptance.</strong> The final round retains 2390 of 2520 generated candidates after the recorded screening process.</figcaption>
+        </figure>
+        <figure>
+          <img class="zoomable" src="assets/figures/fig08_multitask_action_smoothness.svg" alt="Second-order action curvature over iteration rounds for three tasks">
+          <figcaption><strong>Action curvature.</strong> Lower values indicate smoother action sequences; intervals are computed over five seed means rather than trial labels.</figcaption>
+        </figure>
+      </div>
+      <p class="boundary-note"><strong>Interpretation boundary.</strong> Rollout acceptance certifies only the implemented kinematic and geometric checks plus manual review. It is not a measurement of contact force, friction, or dynamic stability.</p>
+    </section>
+
+    <section class="section reproduce-section" id="reproducibility">
+      <div class="section-heading">
+        <p class="eyebrow">Reproducibility</p>
+        <h2>Validate the release before running the full stack</h2>
+      </div>
+      <div class="reproduce-grid">
+        <div>
+          <h3>Lightweight checks</h3>
+          <pre><code>python -m pip install -e ".[dev,figures]"
+python scripts/validate_paper_csvs.py
+python -m pytest
+python scripts/plot_iteration_results.py</code></pre>
+        </div>
+        <div>
+          <h3>Full environment</h3>
+          <p>Install GR00T N1.7, 3DGRUT, Isaac Lab, and LeIsaac as separate pinned dependencies. The repository records the integration contract and resolved parameters without redistributing licensed upstream trees or model weights.</p>
+          <a class="text-link" href="UPSTREAMS.md">Pinned upstream systems</a>
+          <a class="text-link" href="REPRODUCIBILITY.md">End-to-end reproduction guide</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section citation-section" id="citation">
+      <div class="section-heading">
+        <p class="eyebrow">Citation</p>
+        <h2>Cite the accompanying manuscript</h2>
+      </div>
+      <div class="citation-block">
+        <pre id="bibtex"><code>@article{anonymous2026objectdecoupled3dgs,
+  title  = {Object-Decoupled 3D Gaussian Splatting for Structure-Constrained
+            Data Expansion in Sparse-Demonstration Robot Learning},
+  author = {Anonymous Authors},
+  year   = {2026},
+  note   = {Manuscript under double-blind review}
+}</code></pre>
+        <button class="copy-button" type="button" data-copy-target="bibtex">Copy BibTeX</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Object-Decoupled 3DGS · Anonymous project page · 2026</p>
+    <p><a href="SITE_ATTRIBUTION.md">Project-page attribution</a> · <a class="repo-link" href="../LICENSE" data-repo-path="blob/main/LICENSE">Apache-2.0</a></p>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Expanded figure">
+    <button type="button" class="lightbox-close" aria-label="Close figure">Close</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+</body>
+</html>
