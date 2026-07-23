@@ -1,4 +1,4 @@
-﻿task,method,round,seed,demo_count,candidate_rollouts,accepted_rollouts,rejected_rollouts,total_reject_rate,acceptance_rate,collision_reject_rate,workspace_reject_rate,articulation_reject_rate,visibility_reject_rate,smoothness_reject_rate,coverage_index,train_examples,success_trials,total_trials,incremental_success_rate,ci95_low,ci95_high,action_smoothness,path_length_steps,p_vs_sparse_round0
+task,method,round,seed,demo_count,candidate_rollouts,accepted_rollouts,rejected_rollouts,total_reject_rate,acceptance_rate,collision_reject_rate,workspace_reject_rate,articulation_reject_rate,visibility_reject_rate,smoothness_reject_rate,coverage_index,train_examples,success_trials,total_trials,incremental_success_rate,ci95_low,ci95_high,action_smoothness,execution_steps,p_vs_sparse_round0
 Pick-place,Sparse-only,0,0,22,0,0,0,0,0,0,0,0,0,0,0.2851,4400,17,20,85,64,94.8,0.6258,208.7,—
 Pick-place,Sparse-only,0,1,22,0,0,0,0,0,0,0,0,0,0,0.2906,4400,17,20,85,64,94.8,0.6249,207.6,—
 Pick-place,Sparse-only,0,2,22,0,0,0,0,0,0,0,0,0,0,0.3027,4400,16,20,80,58.4,91.9,0.6314,210.8,—

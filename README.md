@@ -61,7 +61,7 @@ docs/                       GitHub Pages project site and reproduction notes
 examples/real_data/         Paper-facing trial, rollout, reconstruction, and ablation records
 examples/structured_scene/  Hinge metadata schema
 integrations/gr00t_n1_7/    Training-only regularization integration hook
-scripts/                    CSV validation, figure reproduction, PLY splitting, run manifests
+scripts/                    CSV validation, figure reproduction, PLY splitting, manifest recorder
 src/odgs_sparse_demo/       Core reference implementation
 tests/                      Unit and release-consistency tests
 ```
@@ -97,9 +97,9 @@ python scripts/plot_iteration_results.py \
   --output-dir outputs/iteration_figures
 ```
 
-This writes separate task-success, rollout-acceptance, and action-curvature
+This writes separate task-success, rollout-acceptance, and action-smoothness
 figures. Success and acceptance use Wilson intervals over count data; action
-curvature uses 95% t intervals over five seed means.
+smoothness uses 95% t intervals over five seed means.
 
 ## Training Integration
 

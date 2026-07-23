@@ -29,7 +29,7 @@ def wilson_ci(successes: int, trials: int, z: float = 1.96) -> tuple[float, floa
 
 
 def action_smoothness(actions: Sequence[Sequence[float]] | np.ndarray) -> float:
-    """Mean squared second-order action difference for one trajectory."""
+    """Temporal mean squared Euclidean norm of second-order action differences."""
     arr = np.asarray(actions, dtype=float)
     if arr.ndim != 2:
         raise ValueError("actions must have shape [time, action_dim]")

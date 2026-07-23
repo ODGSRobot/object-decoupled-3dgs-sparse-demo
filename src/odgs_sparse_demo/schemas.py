@@ -41,6 +41,7 @@ SCHEMAS = (
             "success_trials",
             "total_trials",
             "action_smoothness",
+            "execution_steps",
         ),
     ),
     CsvSchema(

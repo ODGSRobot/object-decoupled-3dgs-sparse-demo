@@ -41,6 +41,22 @@ The paper uses four nonoverlapping evaluation batches:
 
 Drawer opening is excluded from the current real deployment and ablation scope.
 
+## Execution-quality fields
+
+`execution_steps` is the number of 30 Hz control steps from the start of a
+complete episode to termination. It is an episode-duration measure in control
+steps, not accumulated joint-space or end-effector distance.
+
+`action_smoothness` is the temporal mean of the squared Euclidean norm of the
+second-order executed-action difference:
+
+```text
+mean_t ||a[t+2] - 2 a[t+1] + a[t]||_2^2
+```
+
+The value is computed from the executed action sequence. Lower values indicate
+smaller discrete action curvature and smoother control.
+
 ## Validation
 
 ```bash
@@ -53,5 +69,6 @@ and the drawer-task exclusion. It does not infer or repair experimental values.
 ## Large Assets
 
 Raw camera video, Gaussian point clouds, USDZ assets, and checkpoints are not
-stored in this Git repository. A future archival release should assign stable
-identifiers, checksums, licenses, and access conditions to those artifacts.
+stored in this Git repository. Access to laboratory video and licensed hardware
+assets is evaluated under the applicable privacy and third-party license
+conditions.

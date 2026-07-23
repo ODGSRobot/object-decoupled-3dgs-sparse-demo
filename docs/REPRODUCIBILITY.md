@@ -21,8 +21,7 @@ python scripts/plot_iteration_results.py \
 ```
 
 The command creates separate vector plots for task success, accepted rollout
-ratio, and second-order action curvature. It does not merge unlike metrics into
-one figure.
+ratio, and action smoothness. It does not merge unlike metrics into one figure.
 
 ## 3. Prepare demonstrations
 
@@ -72,8 +71,13 @@ candidate must record its seed, active checkpoint, source episode, sampled
 state, automatic-check values, manual-review decision, and rejection reason.
 Only accepted episodes are passed to the incremental trainer.
 
+The policy returns an action chunk of length \(H\). The rollout adapter executes
+the first eight actions, acquires a new observation, and requests a new action
+chunk. This receding-horizon rule is repeated until success, failure, or the
+episode timeout.
+
 The implemented predicate covers collision proxies, workspace, joint limits,
-target visibility, hinge limits, structural residuals, and action curvature.
+target visibility, hinge limits, structural residuals, and action smoothness.
 It does not establish contact-force, friction, or dynamic-stability validity.
 
 ## 7. Evaluate without cross-batch mixing
