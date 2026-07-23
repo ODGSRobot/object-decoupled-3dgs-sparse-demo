@@ -12,7 +12,7 @@ Anonymous Authors
 
 Under double-blind review
 
-[Project page](docs/index.html) · [Reproduction guide](docs/REPRODUCIBILITY.md) ·
+[Project page](https://odgsrobot.github.io/object-decoupled-3dgs-sparse-demo/) · [Reproduction guide](docs/REPRODUCIBILITY.md) ·
 [Data documentation](docs/DATA.md) · [Release checklist](docs/RELEASE_CHECKLIST.md) ·
 [中文说明](README_zh-CN.md)
 

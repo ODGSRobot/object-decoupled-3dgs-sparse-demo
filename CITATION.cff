@@ -5,6 +5,8 @@ type: software
 version: 0.2.0
 date-released: 2026-07-23
 license: Apache-2.0
+repository-code: "https://github.com/ODGSRobot/object-decoupled-3dgs-sparse-demo"
+url: "https://odgsrobot.github.io/object-decoupled-3dgs-sparse-demo/"
 authors:
   - family-names: Authors
     given-names: Anonymous
