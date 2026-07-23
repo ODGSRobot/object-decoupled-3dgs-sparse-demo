@@ -11,7 +11,6 @@ from .feasibility import (
     evaluate_candidate,
 )
 
-
 PolicyT = TypeVar("PolicyT")
 EpisodeT = TypeVar("EpisodeT")
 

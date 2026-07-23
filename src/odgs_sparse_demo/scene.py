@@ -5,7 +5,6 @@ from typing import Literal
 
 import numpy as np
 
-
 StructureType = Literal["rigid", "hinge"]
 
 

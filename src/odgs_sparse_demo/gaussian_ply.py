@@ -7,7 +7,6 @@ from pathlib import Path
 
 import numpy as np
 
-
 PLY_DTYPE_MAP = {
     "char": "i1",
     "uchar": "u1",
