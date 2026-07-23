@@ -4,11 +4,14 @@ import argparse
 import sys
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from odgs_sparse_demo.figures import PLOT_SPECS, plot_all_iteration_results, plot_iteration_result
+from odgs_sparse_demo.figures import (  # noqa: E402
+    PLOT_SPECS,
+    plot_all_iteration_results,
+    plot_iteration_result,
+)
 
 
 def main() -> None:

@@ -9,7 +9,6 @@ import pandas as pd
 
 from .metrics import wilson_ci
 
-
 METHOD_ORDER = (
     "Sparse-only",
     "Random-Aug",
