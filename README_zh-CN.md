@@ -2,10 +2,10 @@
 
 本仓库对应论文 **Object-Decoupled 3D Gaussian Splatting for
 Structure-Constrained Data Expansion in Sparse-Demonstration Robot Learning**，
-提供论文相关的核心实现、实验记录、复现配置和 GitHub Pages 项目主页。
+提供论文相关的核心实现、复现配置和 GitHub Pages 项目主页。
 
 [项目主页](docs/index.html) · [复现说明](docs/REPRODUCIBILITY.md) ·
-[数据说明](docs/DATA.md) · [English README](README.md)
+[私有数据接口说明](docs/DATA.md) · [English README](README.md)
 
 ## 方法范围
 
@@ -24,18 +24,15 @@ Structure-Constrained Data Expansion in Sparse-Demonstration Robot Learning**，
 ```bash
 python -m venv .venv
 python -m pip install -e ".[dev,figures]"
-python scripts/validate_paper_csvs.py
 python -m pytest
-python scripts/plot_iteration_results.py
 ```
 
-`examples/real_data/` 中的任务集合已经按当前论文口径排除抽屉任务。
-三任务方法对比、四任务真实部署、扰动强度扫描和四任务消融是相互独立的
-实验批次，不能混用分母或直接合并。
+数据校验和绘图脚本仅接受显式指定的作者本地数据或独立采集数据路径。
+公开仓库不包含逐试验机器人记录、虚拟推理日志、重建测量值或消融记录。
 
 ## 开源边界
 
-仓库包含核心代码、配置、表格记录、矢量论文图和压缩 GIF。原始实验视频、
-模型权重、第三方完整源码、论文投稿文件、EndNote 库、PPT 工作文件和修改
-过程文件不纳入公开仓库。依赖版本与许可见
+仓库包含核心代码、配置、矢量论文图和压缩 GIF。记录级实验数据、原始实验
+视频、模型权重、第三方完整源码、论文投稿文件、EndNote 库、PPT 工作文件
+和修改过程文件不纳入公开仓库。依赖版本与许可见
 [docs/UPSTREAMS.md](docs/UPSTREAMS.md)。

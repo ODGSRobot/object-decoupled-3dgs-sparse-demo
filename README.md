@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-0f766e)](LICENSE)
 [![Paper](https://img.shields.io/badge/manuscript-Neurocomputing-8b5cf6)](docs/MANUSCRIPT_ALIGNMENT.md)
 
-Paper-facing code, experiment records, and project page for:
+Paper-facing code, configuration, and project page for:
 
 **Object-Decoupled 3D Gaussian Splatting for Structure-Constrained Data Expansion in Sparse-Demonstration Robot Learning**
 
@@ -13,7 +13,7 @@ Anonymous Authors
 Under double-blind review
 
 [Project page](https://odgsrobot.github.io/object-decoupled-3dgs-sparse-demo/) · [Reproduction guide](docs/REPRODUCIBILITY.md) ·
-[Data documentation](docs/DATA.md) · [Release checklist](docs/RELEASE_CHECKLIST.md) ·
+[Private-data interface](docs/DATA.md) · [Release checklist](docs/RELEASE_CHECKLIST.md) ·
 [中文说明](README_zh-CN.md)
 
 ![Closed-loop framework](docs/assets/figures/fig01_framework_loop.svg)
@@ -50,20 +50,21 @@ The release preserves the distinct denominators used by the manuscript:
 | Final virtual-rollout acceptance | 2390/2520, 94.8% | Three-task final iteration |
 | Object-decoupled 3DGS | 27.68 PSNR, 0.895 SSIM, 0.110 LPIPS | Unweighted mean over 9 scenes and 69 held-out views |
 
-These batches are intentionally not pooled. The exact records and aggregation
-rules are documented in [docs/DATA.md](docs/DATA.md).
+These batches are intentionally not pooled. Record-level experimental files are
+not part of the public repository. The manuscript defines the evaluation
+protocol and aggregation units; [docs/DATA.md](docs/DATA.md) describes the
+private-data interface expected by the optional validation utilities.
 
 ## Repository Layout
 
 ```text
 configs/                    Resolved paper and pipeline configuration
 docs/                       GitHub Pages project site and reproduction notes
-examples/real_data/         Paper-facing trial, rollout, reconstruction, and ablation records
 examples/structured_scene/  Hinge metadata schema
 integrations/gr00t_n1_7/    Training-only regularization integration hook
-scripts/                    CSV validation, figure reproduction, PLY splitting, manifest recorder
+scripts/                    Local validation, plotting, PLY splitting, and manifest utilities
 src/odgs_sparse_demo/       Core reference implementation
-tests/                      Unit and release-consistency tests
+tests/                      Unit tests for the public implementation
 ```
 
 The core modules correspond directly to the method:
@@ -85,15 +86,16 @@ cd object-decoupled-3dgs-sparse-demo
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 python -m pip install -e ".[dev,figures]"
-python scripts/validate_paper_csvs.py
 python -m pytest
 ```
 
-Reproduce the three iteration figures as separate vector files:
+With independently collected or author-local records, validate a private result
+directory and draw the three iteration figures as separate vector files:
 
 ```bash
+python scripts/validate_paper_csvs.py --data /path/to/private/result-records
 python scripts/plot_iteration_results.py \
-  --data examples/real_data/iteration_results_long.csv \
+  --data /path/to/private/iteration-results.csv \
   --output-dir outputs/iteration_figures
 ```
 
@@ -152,11 +154,12 @@ force, friction, or dynamic stability.
 
 ## Release Boundary
 
-This repository contains source code, resolved configuration, paper-facing CSV
-records, vector manuscript figures, and compressed demonstration GIFs. It does
-not include identifiable raw laboratory video, pretrained or fine-tuned model
-weights, licensed upstream source trees, Word or LaTeX submission files,
-EndNote libraries, PPT working files, or revision artifacts.
+This repository contains source code, resolved configuration, vector manuscript
+figures, and compressed demonstration GIFs. It does not include record-level
+robot trials, rollout logs, reconstruction measurements, ablation records,
+identifiable raw laboratory video, pretrained or fine-tuned model weights,
+licensed upstream source trees, Word or LaTeX submission files, EndNote
+libraries, PPT working files, or revision artifacts.
 
 ## Citation
 

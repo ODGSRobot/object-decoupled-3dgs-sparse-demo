@@ -12,9 +12,14 @@ from odgs_sparse_demo.schemas import validate_directory  # noqa: E402
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Validate paper-facing CSV schemas, denominators, and task scope."
+        description="Validate local CSV schemas, denominators, and task scope."
     )
-    parser.add_argument("--data", type=Path, default=Path("examples/real_data"))
+    parser.add_argument(
+        "--data",
+        type=Path,
+        required=True,
+        help="Path to a private local result-record directory.",
+    )
     args = parser.parse_args()
 
     report = validate_directory(args.data)

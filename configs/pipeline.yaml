@@ -23,9 +23,9 @@ release_boundary:
   included:
     - paper-facing source code and tests
     - resolved experiment configuration
-    - paper-facing CSV records
     - vector manuscript figures and compressed demonstration GIFs
   excluded:
+    - record-level robot trials, rollout logs, reconstruction measurements, and ablation records
     - identifiable raw laboratory video
     - licensed upstream source trees
     - pretrained and fine-tuned checkpoints

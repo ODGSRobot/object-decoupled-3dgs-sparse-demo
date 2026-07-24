@@ -45,4 +45,4 @@ revision_work/
 # Local legacy material retained on disk but excluded from this clean release
 /assets/
 /docs/assets/img/
-/examples/real_data/fig10_*.csv
+/examples/real_data/

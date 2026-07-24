@@ -21,7 +21,8 @@ def main() -> None:
     parser.add_argument(
         "--data",
         type=Path,
-        default=Path("examples/real_data/iteration_results_long.csv"),
+        required=True,
+        help="Path to a local iteration-results CSV; no record-level data is bundled.",
     )
     parser.add_argument("--output-dir", type=Path, default=Path("outputs/iteration_figures"))
     parser.add_argument("--metric", choices=["all", *PLOT_SPECS], default="all")

@@ -9,14 +9,15 @@ release-control document, not an experimental claim.
   hinge scene states, Gaussian PLY splitting, rollout screening, and the
   incremental update loop.
 - Resolved paper configuration and pinned upstream versions.
-- Paper-facing CSV records with documented denominators and aggregation units.
-- Unit tests, release-consistency tests, and data-schema validation.
+- Unit tests and optional private-data schema validation utilities.
 - Separate vector result plots and the source script used to generate them.
 - The static GitHub Pages site, manuscript figures, and compressed rollout GIFs.
 
 ## Excluded
 
 - Raw laboratory videos or other identifiable recordings.
+- Record-level robot trials, virtual rollout logs, reconstruction
+  measurements, structure-error records, and ablation records.
 - Pretrained and fine-tuned checkpoints, licensed upstream source trees, and
   locally installed simulator assets.
 - Word and LaTeX manuscripts, EndNote libraries, PPT working files, revision
@@ -29,16 +30,12 @@ Run from the repository root:
 
 ```bash
 python -m pip install -e ".[dev,figures]"
-python scripts/validate_paper_csvs.py
 python -m pytest
-python scripts/plot_iteration_results.py
 ```
 
 The release is ready to push only when:
 
 - every test passes;
-- the CSV validator reports consistent task scope and rollout denominators;
-- all three plotting commands produce nonempty PDF and SVG files;
 - every local `src` and `href` used by `docs/index.html` resolves;
 - the staged Git file list contains no secret, private path, manuscript, model
   checkpoint, raw video, or unrelated-project artifact;

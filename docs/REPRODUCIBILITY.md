@@ -8,15 +8,19 @@ This guide separates lightweight validation from the GPU and simulator stages.
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev,figures]"
-python scripts/validate_paper_csvs.py
 python -m pytest
 ```
 
-## 2. Reproduce result figures
+## 2. Validate local records and regenerate figures
+
+Record-level experimental files are not included in the public repository.
+With author-local or independently collected records, supply explicit paths:
 
 ```bash
+python scripts/validate_paper_csvs.py \
+  --data /path/to/private/result-records
 python scripts/plot_iteration_results.py \
-  --data examples/real_data/iteration_results_long.csv \
+  --data /path/to/private/iteration-results.csv \
   --output-dir outputs/iteration_figures
 ```
 
