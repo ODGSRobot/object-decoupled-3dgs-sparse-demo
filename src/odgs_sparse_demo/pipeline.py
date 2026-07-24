@@ -56,7 +56,9 @@ def run_closed_loop_expansion(
     Simulator and policy details enter through two adapters. This function owns
     the invariant algorithmic behavior: every candidate is screened, only
     accepted episodes are written back, every decision is retained, and the
-    current-round policy is passed to the next rollout round.
+    current-round policy is passed to the next rollout round. The rollout
+    adapter must use receding-horizon control: predict an action chunk, execute
+    its first eight actions, acquire a new observation, and predict a new chunk.
     """
     if rounds <= 0 or candidates_per_round <= 0:
         raise ValueError("rounds and candidates_per_round must be positive")

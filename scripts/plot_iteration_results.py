@@ -16,7 +16,7 @@ from odgs_sparse_demo.figures import (  # noqa: E402
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Draw separate success, rollout-acceptance, and action-curvature figures."
+        description="Draw separate success, rollout-acceptance, and action-smoothness figures."
     )
     parser.add_argument(
         "--data",

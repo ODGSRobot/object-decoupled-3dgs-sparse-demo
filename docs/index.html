@@ -129,7 +129,7 @@
           <span>Target visibility</span>
           <span>Hinge range</span>
           <span>Structural residual</span>
-          <span>Action curvature</span>
+          <span>Action smoothness</span>
           <span>Manual review</span>
         </div>
       </article>
@@ -202,8 +202,8 @@
           <figcaption><strong>Rollout acceptance.</strong> The final round retains 2390 of 2520 generated candidates after the recorded screening process.</figcaption>
         </figure>
         <figure>
-          <img class="zoomable" src="assets/figures/fig08_multitask_action_smoothness.svg" alt="Second-order action curvature over iteration rounds for three tasks">
-          <figcaption><strong>Action curvature.</strong> Lower values indicate smoother action sequences; intervals are computed over five seed means rather than trial labels.</figcaption>
+          <img class="zoomable" src="assets/figures/fig08_multitask_action_smoothness.svg" alt="Action smoothness over iteration rounds for three tasks">
+          <figcaption><strong>Action smoothness.</strong> Values are temporal means of squared second-order executed-action differences. Lower is smoother; intervals are computed over five seed means rather than trial labels.</figcaption>
         </figure>
       </div>
       <p class="boundary-note"><strong>Interpretation boundary.</strong> Rollout acceptance certifies only the implemented kinematic and geometric checks plus manual review. It is not a measurement of contact force, friction, or dynamic stability.</p>

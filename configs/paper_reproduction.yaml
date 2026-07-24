@@ -1,5 +1,5 @@
 schema_version: 2
-manuscript_alignment: Neurocomputing v35 (2026-07-22)
+manuscript_alignment: Neurocomputing v37 (2026-07-24)
 
 evaluation:
   control_frequency_hz: 30
@@ -34,6 +34,10 @@ policy_training:
   trainable_modules: [projector, action_decoder]
   architecture_changed: false
   inference_path_changed: false
+  inference_execution:
+    predicted_action_chunk_length: policy-configured H
+    execution_horizon_actions: 8
+    replanning_rule: acquire a new observation and predict a new chunk after 8 executed actions
 
 structured_environment:
   supported_structure_types: [rigid, hinge]

@@ -44,7 +44,10 @@ PLOT_SPECS = {
         "acceptance", "Accepted rollouts (%)", "higher", "rollout_acceptance_iterations"
     ),
     "smoothness": PlotSpec(
-        "smoothness", "Second-order action curvature", "lower", "action_curvature_iterations"
+        "smoothness",
+        "Action smoothness (lower is better)",
+        "lower",
+        "action_smoothness_iterations",
     ),
 }
 

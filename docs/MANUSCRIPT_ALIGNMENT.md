@@ -1,6 +1,6 @@
 # Manuscript-to-Repository Alignment
 
-Alignment target: Neurocomputing manuscript v35, dated 2026-07-22.
+Alignment target: Neurocomputing manuscript v37, dated 2026-07-24.
 
 | Manuscript item | Repository evidence |
 |---|---|
@@ -16,8 +16,21 @@ Alignment target: Neurocomputing manuscript v35, dated 2026-07-22.
 | Table 6, ablation | `table6_ablation_statistics.csv` |
 | Four-task deployment | `real_robot_trials.csv`, `table5_real_robot_trial_summary.csv` |
 
-The vector files under `docs/assets/figures/` are copied from the v35
+The vector files under `docs/assets/figures/` are synchronized with the v37
 submission source. Website captions are outside the image files.
+
+## Scene-symbol mapping
+
+The manuscript separates static asset data from a sampled scene state:
+
+- \(\mathcal{A}\) denotes static object assets, including object-local Gaussian
+  support, local frames, rigid or hinge parameters, and collision proxies.
+  These fields map to `HingeModel`, Gaussian PLY metadata, and asset files.
+- \(\mathcal{Z}\) denotes the current randomized robot, object, target, and hinge
+  state. It maps to `SampledSceneState`.
+- \(\mathcal{S}=(\mathcal{G},\mathcal{A},\mathcal{Z})\) denotes one instantiated
+  scene used by the rollout adapter. The static assets remain unchanged while
+  `sample_scene_state` updates \(\mathcal{Z}\).
 
 ## Claims not made by the code
 
