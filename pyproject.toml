@@ -16,7 +16,7 @@ keywords = [
   "3d-gaussian-splatting",
   "robot-learning",
   "sparse-demonstrations",
-  "data-augmentation",
+  "data-expansion",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",

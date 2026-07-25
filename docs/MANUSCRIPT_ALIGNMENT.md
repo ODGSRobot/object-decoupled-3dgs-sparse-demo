@@ -1,6 +1,6 @@
 # Manuscript-to-Repository Alignment
 
-Alignment target: Neurocomputing manuscript v37, dated 2026-07-24.
+Alignment target: Neurocomputing manuscript v43, dated 2026-07-25.
 
 | Manuscript item | Repository evidence |
 |---|---|
@@ -11,7 +11,7 @@ Alignment target: Neurocomputing manuscript v37, dated 2026-07-24.
 | Tables 2-6 and Figs. 6-8 | Metric, plotting, and validation implementations; record-level inputs remain private |
 | Four-task deployment | Evaluation protocol in the manuscript; record-level inputs remain private |
 
-The vector files under `docs/assets/figures/` are synchronized with the v37
+The vector files under `docs/assets/figures/` are synchronized with the v43
 submission source. Website captions are outside the image files.
 
 ## Scene-symbol mapping

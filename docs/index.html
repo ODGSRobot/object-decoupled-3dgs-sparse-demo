@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Object-decoupled 3D Gaussian Splatting for structure-constrained data expansion from sparse robot demonstrations.">
-  <meta name="keywords" content="3D Gaussian Splatting, robot learning, sparse demonstrations, virtual rollout, data augmentation">
+  <meta name="keywords" content="3D Gaussian Splatting, robot learning, sparse demonstrations, virtual rollout, data expansion">
   <meta name="author" content="Anonymous Authors">
   <meta name="theme-color" content="#0b1513">
   <meta property="og:type" content="article">
@@ -66,11 +66,11 @@
     <section class="section section-intro" id="overview">
       <div class="section-heading">
         <p class="eyebrow">Overview</p>
-        <h2>Expand the executable support, not just the sample count</h2>
+        <h2>Expand structure-constrained support, not just the sample count</h2>
       </div>
       <div class="abstract-grid">
         <p class="lead">
-          Sparse demonstrations leave large portions of a manipulation task unseen. Appearance-only augmentation can add images without adding executable state transitions. We instead use object structure to define where virtual interaction may vary and screen every generated trajectory before it can affect policy training.
+          Sparse demonstrations leave large portions of a manipulation task unseen. Appearance-only augmentation can add images without adding task-relevant state transitions. We instead use object structure to define where virtual interaction may vary and screen every generated trajectory before it can affect policy training.
         </p>
         <p>
           The loop begins with an initial policy trained on synchronized real top-view and wrist-view episodes. Foreground objects and background are reconstructed as separately controllable 3DGS assets, with rigid pose ranges or hinge parameters. The policy then performs closed-loop virtual rollouts under scene randomization. Only candidates that pass the implemented kinematic and geometric checks and manual review are written back for incremental training.
